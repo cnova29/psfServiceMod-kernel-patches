@@ -1,0 +1,126 @@
+diff -cr android-omap-2.6.32-orig/arch/arm/configs/sholes_defconfig android-omap-2.6.32/arch/arm/configs/sholes_defconfig
+*** android-omap-2.6.32-orig/arch/arm/configs/sholes_defconfig	2010-12-12 20:20:19.949502036 +0000
+--- android-omap-2.6.32/arch/arm/configs/sholes_defconfig	2010-12-12 20:35:57.777502032 +0000
+***************
+*** 1548,1555 ****
+  CONFIG_USB_DEVICEFS=y
+  CONFIG_USB_DEVICE_CLASS=y
+  # CONFIG_USB_DYNAMIC_MINORS is not set
+! CONFIG_USB_SUSPEND=y
+! CONFIG_USB_OTG=y
+  # CONFIG_USB_OTG_WHITELIST is not set
+  # CONFIG_USB_OTG_BLACKLIST_HUB is not set
+  CONFIG_USB_MON=y
+--- 1548,1555 ----
+  CONFIG_USB_DEVICEFS=y
+  CONFIG_USB_DEVICE_CLASS=y
+  # CONFIG_USB_DYNAMIC_MINORS is not set
+! # CONFIG_USB_SUSPEND is not set
+! # CONFIG_USB_OTG is not set
+  # CONFIG_USB_OTG_WHITELIST is not set
+  # CONFIG_USB_OTG_BLACKLIST_HUB is not set
+  CONFIG_USB_MON=y
+***************
+*** 1581,1590 ****
+  # OMAP 343x high speed USB support
+  #
+  # CONFIG_USB_MUSB_HOST is not set
+! # CONFIG_USB_MUSB_PERIPHERAL is not set
+! CONFIG_USB_MUSB_OTG=y
+  CONFIG_USB_GADGET_MUSB_HDRC=y
+! CONFIG_USB_MUSB_HDRC_HCD=y
+  # CONFIG_MUSB_PIO_ONLY is not set
+  CONFIG_USB_INVENTRA_DMA=y
+  # CONFIG_USB_TI_CPPI_DMA is not set
+--- 1581,1590 ----
+  # OMAP 343x high speed USB support
+  #
+  # CONFIG_USB_MUSB_HOST is not set
+! CONFIG_USB_MUSB_PERIPHERAL=y
+! # CONFIG_USB_MUSB_OTG is not set
+  CONFIG_USB_GADGET_MUSB_HDRC=y
+! # CONFIG_USB_MUSB_HDRC_HCD is not set
+  # CONFIG_MUSB_PIO_ONLY is not set
+  CONFIG_USB_INVENTRA_DMA=y
+  # CONFIG_USB_TI_CPPI_DMA is not set
+***************
+*** 1724,1735 ****
+  # CONFIG_USB_G_SERIAL is not set
+  # CONFIG_USB_MIDI_GADGET is not set
+  # CONFIG_USB_G_PRINTER is not set
+! CONFIG_USB_ANDROID=y
+! # CONFIG_USB_ANDROID_ACM is not set
+! CONFIG_USB_ANDROID_ADB=y
+! CONFIG_USB_ANDROID_MASS_STORAGE=y
+! CONFIG_USB_ANDROID_RNDIS=y
+! CONFIG_USB_ANDROID_RNDIS_WCEIS=y
+  # CONFIG_USB_CDC_COMPOSITE is not set
+  
+  #
+--- 1724,1730 ----
+  # CONFIG_USB_G_SERIAL is not set
+  # CONFIG_USB_MIDI_GADGET is not set
+  # CONFIG_USB_G_PRINTER is not set
+! # CONFIG_USB_ANDROID is not set
+  # CONFIG_USB_CDC_COMPOSITE is not set
+  
+  #
+diff -cr android-omap-2.6.32-orig/arch/arm/mach-omap2/board-sholes.c android-omap-2.6.32/arch/arm/mach-omap2/board-sholes.c
+*** android-omap-2.6.32-orig/arch/arm/mach-omap2/board-sholes.c	2010-12-12 20:20:20.085502035 +0000
+--- android-omap-2.6.32/arch/arm/mach-omap2/board-sholes.c	2010-12-12 20:33:08.473502036 +0000
+***************
+*** 318,333 ****
+  static int cpcap_usb_connected_probe(struct platform_device *pdev)
+  {
+  	/* Wake up MUSB from lowpower state */
+! 	musb_disable_idle(1);
+! 	android_usb_set_connected(1);
+  	return 0;
+  }
+  
+  static int cpcap_usb_connected_remove(struct platform_device *pdev)
+  {
+  	/* Enable low power state for MUSB */
+! 	musb_disable_idle(0);
+! 	android_usb_set_connected(0);
+  	return 0;
+  }
+  
+--- 318,333 ----
+  static int cpcap_usb_connected_probe(struct platform_device *pdev)
+  {
+  	/* Wake up MUSB from lowpower state */
+! 	//musb_disable_idle(1);
+! 	//android_usb_set_connected(1);
+  	return 0;
+  }
+  
+  static int cpcap_usb_connected_remove(struct platform_device *pdev)
+  {
+  	/* Enable low power state for MUSB */
+! 	//musb_disable_idle(0);
+! 	//android_usb_set_connected(0);
+  	return 0;
+  }
+  
+diff -cr android-omap-2.6.32-orig/arch/arm/mach-omap2/Makefile android-omap-2.6.32/arch/arm/mach-omap2/Makefile
+*** android-omap-2.6.32-orig/arch/arm/mach-omap2/Makefile	2010-12-12 20:20:20.081502039 +0000
+--- android-omap-2.6.32/arch/arm/mach-omap2/Makefile	2010-12-12 20:32:08.101502036 +0000
+***************
+*** 94,101 ****
+  					   board-sholes-hsmmc.o \
+  					   board-sholes-keypad.o \
+  					   board-sholes-wifi.o \
+! 					   board-sholes-mmcprobe.o \
+! 					   board-sholes-usbnet.o \
+  
+  obj-$(CONFIG_MACH_NOKIA_RX51)		+= board-rx51.o \
+  					   board-rx51-sdram.o \
+--- 94,100 ----
+  					   board-sholes-hsmmc.o \
+  					   board-sholes-keypad.o \
+  					   board-sholes-wifi.o \
+! 					   board-sholes-mmcprobe.o
+  
+  obj-$(CONFIG_MACH_NOKIA_RX51)		+= board-rx51.o \
+  					   board-rx51-sdram.o \
