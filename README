@@ -1,0 +1,16 @@
+Various kernel patches to allow unloading of USB
+
+Unload is triggered by issuing
+'echo 1 > /proc/dusb'
+
+cyanogen-kernel-msm-2.6.35 is used for:
+  bravo
+  bravoc
+  mahimahi
+  dream (32B)
+  
+cyanogen-kernel-msm7x30-2.6.32 is used for:
+  ace
+  glacier
+  vision
+  
