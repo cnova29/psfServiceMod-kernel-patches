@@ -1,6 +1,6 @@
-diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/configs/hero_defconfig /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/arch/arm/configs/hero_defconfig
-*** /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/configs/hero_defconfig	2010-06-15 10:58:05.000000000 +0100
---- /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/arch/arm/configs/hero_defconfig	2010-12-15 10:10:54.000000000 +0000
+diff -cr hero-2.6.29-5f74b252/arch/arm/configs/hero_defconfig kernel-hero/arch/arm/configs/hero_defconfig
+*** hero-2.6.29-5f74b252/arch/arm/configs/hero_defconfig	2010-06-15 10:58:05.000000000 +0100
+--- kernel-hero/arch/arm/configs/hero_defconfig	2010-12-15 10:10:54.000000000 +0000
 ***************
 *** 1093,1127 ****
   # CONFIG_USB is not set
@@ -94,9 +94,9 @@ diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/configs/hero_defco
   CONFIG_MMC=y
   # CONFIG_MMC_DEBUG is not set
   CONFIG_MMC_UNSAFE_RESUME=y
-diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/mach-msm/devices.c /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/arch/arm/mach-msm/devices.c
-*** /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/mach-msm/devices.c	2010-06-15 10:58:02.000000000 +0100
---- /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/arch/arm/mach-msm/devices.c	2010-12-15 07:38:07.181442980 +0000
+diff -cr hero-2.6.29-5f74b252/arch/arm/mach-msm/devices.c kernel-hero/arch/arm/mach-msm/devices.c
+*** hero-2.6.29-5f74b252/arch/arm/mach-msm/devices.c	2010-06-15 10:58:02.000000000 +0100
+--- kernel-hero/arch/arm/mach-msm/devices.c	2010-12-15 07:38:07.181442980 +0000
 ***************
 *** 32,40 ****
 --- 32,45 ----
@@ -170,9 +170,9 @@ diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/mach-msm/devices.c
   }
   
   static struct resource resources_uart1[] = {
-diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/mach-msm/htc_battery.c /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/arch/arm/mach-msm/htc_battery.c
-*** /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/mach-msm/htc_battery.c	2010-06-15 10:58:02.000000000 +0100
---- /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/arch/arm/mach-msm/htc_battery.c	2010-12-15 07:38:07.185442994 +0000
+diff -cr hero-2.6.29-5f74b252/arch/arm/mach-msm/htc_battery.c kernel-hero/arch/arm/mach-msm/htc_battery.c
+*** hero-2.6.29-5f74b252/arch/arm/mach-msm/htc_battery.c	2010-06-15 10:58:02.000000000 +0100
+--- kernel-hero/arch/arm/mach-msm/htc_battery.c	2010-12-15 07:38:07.185442994 +0000
 ***************
 *** 1560,1566 ****
   	wake_lock_init(&vbus_wake_lock, WAKE_LOCK_SUSPEND, "vbus_present");
@@ -190,9 +190,9 @@ diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/mach-msm/htc_batte
   	platform_driver_register(&htc_battery_driver);
   	batt_register_client(&batt_notify);
   	/* Jay, The msm_fb need to consult htc_battery for power policy */
-diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/mach-msm/include/mach/msm_hsusb.h /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/arch/arm/mach-msm/include/mach/msm_hsusb.h
-*** /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/mach-msm/include/mach/msm_hsusb.h	2010-06-15 10:57:53.000000000 +0100
---- /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/arch/arm/mach-msm/include/mach/msm_hsusb.h	2010-12-15 07:38:07.185442994 +0000
+diff -cr hero-2.6.29-5f74b252/arch/arm/mach-msm/include/mach/msm_hsusb.h kernel-hero/arch/arm/mach-msm/include/mach/msm_hsusb.h
+*** hero-2.6.29-5f74b252/arch/arm/mach-msm/include/mach/msm_hsusb.h	2010-06-15 10:57:53.000000000 +0100
+--- kernel-hero/arch/arm/mach-msm/include/mach/msm_hsusb.h	2010-12-15 07:38:07.185442994 +0000
 ***************
 *** 21,27 ****
   
@@ -227,9 +227,9 @@ diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/arch/arm/mach-msm/include/m
   
   struct msm_hsusb_platform_data {
   	/* hard reset the ULPI PHY */
-diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/drivers/usb/gadget/android.c /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/drivers/usb/gadget/android.c
-*** /home/klutsh/Downloads/hero-2.6.29-5f74b252/drivers/usb/gadget/android.c	2010-06-28 11:09:55.000000000 +0100
---- /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/drivers/usb/gadget/android.c	2010-12-15 07:38:07.185442994 +0000
+diff -cr hero-2.6.29-5f74b252/drivers/usb/gadget/android.c kernel-hero/drivers/usb/gadget/android.c
+*** hero-2.6.29-5f74b252/drivers/usb/gadget/android.c	2010-06-28 11:09:55.000000000 +0100
+--- kernel-hero/drivers/usb/gadget/android.c	2010-12-15 07:38:07.185442994 +0000
 ***************
 *** 32,37 ****
 --- 32,39 ----
@@ -317,9 +317,9 @@ diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/drivers/usb/gadget/android.
   	ret = platform_driver_register(&android_platform_driver);
   	if (ret)
   		return ret;
-diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/drivers/usb/gadget/composite.c /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/drivers/usb/gadget/composite.c
-*** /home/klutsh/Downloads/hero-2.6.29-5f74b252/drivers/usb/gadget/composite.c	2010-06-28 11:09:55.000000000 +0100
---- /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/drivers/usb/gadget/composite.c	2010-12-15 07:38:07.189443007 +0000
+diff -cr hero-2.6.29-5f74b252/drivers/usb/gadget/composite.c kernel-hero/drivers/usb/gadget/composite.c
+*** hero-2.6.29-5f74b252/drivers/usb/gadget/composite.c	2010-06-28 11:09:55.000000000 +0100
+--- kernel-hero/drivers/usb/gadget/composite.c	2010-12-15 07:38:07.189443007 +0000
 ***************
 *** 1061,1067 ****
   	.speed		= USB_SPEED_HIGH,
@@ -354,9 +354,9 @@ diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/drivers/usb/gadget/composit
   {
   	if (composite != driver)
   		return;
-diff -cr /home/klutsh/Downloads/hero-2.6.29-5f74b252/drivers/usb/gadget/f_adb.c /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/drivers/usb/gadget/f_adb.c
-*** /home/klutsh/Downloads/hero-2.6.29-5f74b252/drivers/usb/gadget/f_adb.c	2010-06-28 11:09:55.000000000 +0100
---- /home/klutsh/psfServiceMod/CyanogenMod/kernel-hero/drivers/usb/gadget/f_adb.c	2010-12-15 07:38:07.189443007 +0000
+diff -cr hero-2.6.29-5f74b252/drivers/usb/gadget/f_adb.c kernel-hero/drivers/usb/gadget/f_adb.c
+*** hero-2.6.29-5f74b252/drivers/usb/gadget/f_adb.c	2010-06-28 11:09:55.000000000 +0100
+--- kernel-hero/drivers/usb/gadget/f_adb.c	2010-12-15 07:38:07.189443007 +0000
 ***************
 *** 470,476 ****
   static int adb_release(struct inode *ip, struct file *fp)
