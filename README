@@ -3,14 +3,23 @@ Various kernel patches to allow unloading of USB
 Unload is triggered by issuing
 'echo 1 > /proc/dusb'
 
-cyanogen-kernel-msm-2.6.35 is used for:
+cyanogen-kernel-msm-2.6.35.diff is used for:
   bravo
   bravoc
   mahimahi
   dream (32B)
+  supersonic
   
-cyanogen-kernel-msm7x30-2.6.32 is used for:
+cyanogen-kernel-msm7xxx-2.6.32.diff is used for:
   ace
   glacier
   vision
+  legend
+  libery
+  espresso
   
+commtiva Z71 source: https://github.com/rmcc/commtiva-kernel-z71
+Ace, Glacier, Vision source: https://github.com/CyanogenMod/htc-kernel-msm7x30
+Legend, Libery, Espresso source: https://github.com/CyanogenMod/htc-kernel-msm7227
+Bravo, Bravoc, Mahimahi, Dream (32B), supersonic source: https://github.com/CyanogenMod/cm-kernel
+All other kernels: http://developer.htc.com
